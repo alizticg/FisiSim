@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FisiSim - Simulaciones Físicas Interactivas</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🔬 FisiSim</h1>
+            <p>Plataforma Interactiva de Simulaciones Físicas</p>
+        </div>
+
+        <div class="tabs">
+            <button class="tab active" onclick="showSimulation('projectile')">🎯 Movimiento Parabólico</button>
+            <button class="tab" onclick="showSimulation('pendulum')">⚖️ Péndulo Simple</button>
+            <button class="tab" onclick="showSimulation('waves')">🌊 Ondas</button>
+        </div>
+
+        <!-- Simulación 1: Movimiento Parabólico -->
+        <div id="projectile" class="simulation active">
+            <h2 class="sim-title">Movimiento Parabólico</h2>
+            <div class="sim-content">
+                <div class="canvas-container">
+                    <canvas id="projectileCanvas" width="600" height="400"></canvas>
+                </div>
+                <div class="controls">
+                    <div class="control-group">
+                        <label for="velocity">Velocidad Inicial (m/s):</label>
+                        <input type="range" id="velocity" min="10" max="100" value="50" oninput="updateProjectileDisplay()">
+                        <span id="velocityValue">50</span>
+                    </div>
+                    <div class="control-group">
+                        <label for="angle">Ángulo (grados):</label>
+                        <input type="range" id="angle" min="0" max="90" value="45" oninput="updateProjectileDisplay()">
+                        <span id="angleValue">45</span>
+                    </div>
+                    <div class="control-group">
+                        <label for="gravity">Gravedad (m/s²):</label>
+                        <input type="range" id="gravity" min="1" max="15" value="9.81" step="0.1" oninput="updateProjectileDisplay()">
+                        <span id="gravityValue">9.81</span>
+                    </div>
+                    <button class="btn" onclick="launchProjectile()">🚀 Lanzar</button>
+                    <button class="btn" onclick="resetProjectile()">🔄 Reiniciar</button>
+                    
+                    <div class="info-panel">
+                        <h4>Fórmulas:</h4>
+                        <div class="formula">x = v₀ × cos(θ) × t</div>
+                        <div class="formula">y = v₀ × sin(θ) × t - ½gt²</div>
+                    </div>
+                    
+                    <div class="results" id="projectileResults">
+                        <h4>Resultados:</h4>
+                        <p>Alcance máximo: <span id="maxRange">0</span> m</p>
+                        <p>Altura máxima: <span id="maxHeight">0</span> m</p>
+                        <p>Tiempo de vuelo: <span id="flightTime">0</span> s</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Simulación 2: Péndulo Simple -->
+        <div id="pendulum" class="simulation">
+            <h2 class="sim-title">Péndulo Simple</h2>
+            <div class="sim-content">
+                <div class="canvas-container">
+                    <canvas id="pendulumCanvas" width="600" height="400"></canvas>
+                </div>
+                <div class="controls">
+                    <div class="control-group">
+                        <label for="length">Longitud (m):</label>
+                        <input type="range" id="length" min="0.5" max="3" value="1.5" step="0.1" oninput="updatePendulumDisplay()">
+                        <span id="lengthValue">1.5</span>
+                    </div>
+                    <div class="control-group">
+                        <label for="mass">Masa (kg):</label>
+                        <input type="range" id="mass" min="1" max="10" value="5" oninput="updatePendulumDisplay()">
+                        <span id="massValue">5</span>
+                    </div>
+                    <div class="control-group">
+                        <label for="initialAngle">Ángulo inicial (grados):</label>
+                        <input type="range" id="initialAngle" min="5" max="60" value="30" oninput="updatePendulumDisplay()">
+                        <span id="initialAngleValue">30</span>
+                    </div>
+                    <button class="btn" onclick="startPendulum()">▶️ Iniciar</button>
+                    <button class="btn" onclick="stopPendulum()">⏸️ Pausar</button>
+                    <button class="btn" onclick="resetPendulum()">🔄 Reiniciar</button>
+                    
+                    <div class="info-panel">
+                        <h4>Fórmulas:</h4>
+                        <div class="formula">T = 2π√(L/g)</div>
+                        <div class="formula">θ = θ₀ × cos(ωt)</div>
+                    </div>
+                    
+                    <div class="results" id="pendulumResults">
+                        <h4>Resultados:</h4>
+                        <p>Período: <span id="period">0</span> s</p>
+                        <p>Frecuencia: <span id="frequency">0</span> Hz</p>
+                        <p>Energía: <span id="energy">0</span> J</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Simulación 3: Ondas -->
+        <div id="waves" class="simulation">
+            <h2 class="sim-title">Ondas</h2>
+            <div class="sim-content">
+                <div class="canvas-container">
+                    <canvas id="waveCanvas" width="600" height="400"></canvas>
+                </div>
+                <div class="controls">
+                    <div class="control-group">
+                        <label for="amplitude">Amplitud:</label>
+                        <input type="range" id="amplitude" min="10" max="100" value="50" oninput="updateWaveDisplay()">
+                        <span id="amplitudeValue">50</span>
+                    </div>
+                    <div class="control-group">
+                        <label for="frequency">Frecuencia (Hz):</label>
+                        <input type="range" id="waveFrequency" min="0.1" max="5" value="1" step="0.1" oninput="updateWaveDisplay()">
+                        <span id="waveFrequencyValue">1</span>
+                    </div>
+                    <div class="control-group">
+                        <label for="waveType">Tipo de onda:</label>
+                        <select id="waveType" onchange="updateWaveDisplay()">
+                            <option value="sine">Seno</option>
+                            <option value="cosine">Coseno</option>
+                            <option value="square">Cuadrada</option>
+                        </select>
+                    </div>
+                    <button class="btn" onclick="startWave()">▶️ Iniciar</button>
+                    <button class="btn" onclick="stopWave()">⏸️ Pausar</button>
+                    <button class="btn" onclick="resetWave()">🔄 Reiniciar</button>
+                    
+                    <div class="info-panel">
+                        <h4>Fórmulas:</h4>
+                        <div class="formula">y = A × sin(2πft + φ)</div>
+                        <div class="formula">λ = v/f</div>
+                    </div>
+                    
+                    <div class="results" id="waveResults">
+                        <h4>Resultados:</h4>
+                        <p>Período: <span id="wavePeriod">0</span> s</p>
+                        <p>Longitud de onda: <span id="wavelength">0</span> m</p>
+                        <p>Velocidad: <span id="waveSpeed">0</span> m/s</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
