@@ -10,7 +10,7 @@ Una plataforma web interactiva para aprender y visualizar conceptos de física a
 
 ## 🚀 Demo en Vivo
 
-Prueba FisiSim aquí: [https://TU_USUARIO.github.io/fisisim-physics-simulator/](https://TU_USUARIO.github.io/fisisim-physics-simulator/)
+Prueba FisiSim aquí:https://alizticg.github.io/FisiSim/ 
 
 ## 📱 Capturas de Pantalla
 
