@@ -12,17 +12,6 @@ Una plataforma web interactiva para aprender y visualizar conceptos de física a
 
 Prueba FisiSim aquí:https://alizticg.github.io/FisiSim/ 
 
-## 📱 Capturas de Pantalla
-
-### Movimiento Parabólico
-![Movimiento Parabólico](https://via.placeholder.com/600x400?text=Movimiento+Parabólico)
-
-### Péndulo Simple
-![Péndulo Simple](https://via.placeholder.com/600x400?text=Péndulo+Simple)
-
-### Ondas
-![Ondas](https://via.placeholder.com/600x400?text=Ondas)
-
 ## 🎯 Funcionalidades
 
 ### Movimiento Parabólico
@@ -91,20 +80,12 @@ Prueba FisiSim aquí:https://alizticg.github.io/FisiSim/
 4. Push a la rama (`git push origin feature/nueva-simulacion`)
 5. Abre un Pull Request
 
-## 📝 Licencia
-
-Este proyecto está bajo la Licencia MIT. Ver el archivo `LICENSE` para más detalles.
-
-## 🙏 Agradecimientos
-
-- Inspirado en la necesidad de hacer la física más accesible y visual
-- Diseño basado en tendencias modernas de UI/UX
-- Fórmulas físicas estándar para educación secundaria y universitaria
-
 ## 📞 Contacto
 
 Si tienes preguntas o sugerencias, no dudes en abrir un issue o contactarme.
-
+www.linkedin.com/in/alizonticona
+alizontc12@gmail.com
+Whatsapp 76204981
 ---
 
 **¡Haz que la física sea divertida y visual! 🚀**
