@@ -84,8 +84,11 @@ Prueba FisiSim aquí:https://alizticg.github.io/FisiSim/
 
 Si tienes preguntas o sugerencias, no dudes en abrir un issue o contactarme.
 www.linkedin.com/in/alizonticona
+
 alizontc12@gmail.com
+
 Whatsapp 76204981
+
 ---
 
 **¡Haz que la física sea divertida y visual! 🚀**
